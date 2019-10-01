@@ -1,5 +1,26 @@
 const express = require('express')
-const app = express()
+const app = express();
+
+//app.use(express.urlencoded());
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.post('/login', function (request, response) {
+    // response.render('/login',{ name: request.body.name });
+
+
+    
+    const login = request.body.login
+    const password = request.body.password
+    console.log(login);
+    console.log(password);
+    console.log(request.body);
+    response.send(login + ' ' + password)
+
+})
+
+
+
 
 app.get('/toto', function (request, response) {
     response.send('Hello World toto!!!')
@@ -44,10 +65,8 @@ app.get('/hello/names' , function (request, response) {
 /*// GET /shoes?order=desc&shoe[color]=blue&shoe[type]=converse
 console.dir(req.query.order)
 // => 'desc'
-
 console.dir(req.query.shoe.color)
 // => 'blue'
-
 console.dir(req.query.shoe.type)
 // => 'converse'*/
 
