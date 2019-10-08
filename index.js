@@ -1,20 +1,22 @@
 const express = require('express')
+const fs = require('fs');
 const app = express();
 
 //app.use(express.urlencoded());
 const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use(express.static('public'));
+
 
 app.post('/login', function (request, response) {
     // response.render('/login',{ name: request.body.name });
 
 
-    
+    console.log(request.body);
     const login = request.body.login
     const password = request.body.password
-    console.log(login);
-    console.log(password);
-    console.log(request.body);
+    
     response.send(login + ' ' + password)
 
 })
