@@ -35,12 +35,11 @@
             const loginValue = document.forms.doc.elements.login.value;
             const passwordValue = document.forms.doc.elements.password.value;
 
-            fetch("/login", {
-
+            fetch("http://localhost:3000/login", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     login: loginValue,
@@ -48,7 +47,8 @@
                 })
 
             }).then(function(response) {
-                console.log(loginValue);
+                console.log(response);
+                
             });
 
             // alert("login: " + loginValue);
