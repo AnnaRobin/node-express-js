@@ -8,20 +8,36 @@ app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
+//const myRequest = new request
+// fetch(myRequest).then(function(response){
+//     console.log(response.ok)
+
+// })
 
 app.post('/login', function (request, response) {
     // response.render('/login',{ name: request.body.name });
-
-
-    console.log(request.body);
+    
     const login = request.body.login
     const password = request.body.password
+    let responseData = {
+        status : 0,
+        message : null
+    }
+
+    console.log(responseData);
+
+    if (login === 'Anna' && password === 'India') {
+        responseData.status = 200; 
+        responseData.message = "ok";
+    }else{
+        responseData.status = 401;
+        responseData.message = "Try it again";
+    }
+
+    response.status(responseData.status).send(responseData);
+    console.log(responseData);
     
-    response.send(login + ' ' + password)
-
 })
-
-
 
 
 app.get('/toto', function (request, response) {
