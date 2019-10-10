@@ -31,7 +31,7 @@
 
             event.preventDefault();
 
-    
+
             const loginValue = document.forms.doc.elements.login.value;
             const passwordValue = document.forms.doc.elements.password.value;
 
@@ -46,10 +46,19 @@
                     password: passwordValue
                 })
 
-            }).then(function(response) {
-                console.log(response);
-                
-            });
+            }).then(function (response) {
+                const p = response.json();
+                console.log(p);     
+                return p;
+            }).then(function (data) {
+                if (data.status === 200) {
+                    alert('ok ' + data.message)
+                }
+                else{
+                    alert('ko ' + data.message)
+                }
+            })
+
 
             // alert("login: " + loginValue);
             // alert("password: " + passwordValue);

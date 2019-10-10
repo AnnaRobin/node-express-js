@@ -15,20 +15,23 @@ app.post('/login', function (request, response) {
     const password = request.body.password;
     let responseData = {
         status: 0,
-        message: null
+        message : null
     }
 
+    console.log(responseData);
 
     if (login === 'tata' && password === 'candy') {
         responseData.status = 200;
-        responseData.message = login;
+        responseData.message = 'access granted';
 
     } else {
         responseData.status = 401;
         responseData.message = 'not authorized';
 
     }
-    response.status(responseData.status).send(responseData.message);
+
+    response.status(responseData.status).send(responseData);
+    console.log(responseData);
 
 })
 
@@ -74,16 +77,6 @@ app.get('/hello/names', function (request, response) {
     response.send(result);
     console.log(result);
 })
-
-/*// GET /shoes?order=desc&shoe[color]=blue&shoe[type]=converse
-console.dir(req.query.order)
-// => 'desc'
-console.dir(req.query.shoe.color)
-// => 'blue'
-console.dir(req.query.shoe.type)
-// => 'converse'*/
-
-
 
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!')
