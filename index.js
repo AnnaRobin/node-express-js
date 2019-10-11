@@ -16,7 +16,7 @@ app.use(express.static('public'));
 
 app.post('/login', function (request, response) {
     // response.render('/login',{ name: request.body.name });
-    
+
     const login = request.body.login
     const password = request.body.password
     let responseData = {
