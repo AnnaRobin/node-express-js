@@ -14,7 +14,7 @@
   "author": "anna.cuilhe\u001b[1;7p-ext@socgen.com",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "nodemon": "^1.19.3"
